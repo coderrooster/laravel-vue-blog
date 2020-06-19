@@ -1,0 +1,9 @@
+######ARTISAN MAKE######
+@Category
+  -php artisan make:controller WebMain/Post/PostController
+  -php artisan make:model Models/Category
+  -php artisan make:migration create_category_table
+@Post
+  -php artisan make:controller WebMain/Post/CategoryController
+  -php artisan make:model Models/Post
+  -php artisan make:migration create_post_table
