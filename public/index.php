@@ -21,6 +21,9 @@ define('LARAVEL_START', microtime(true));
 |
 */
 
+// hosting
+//require __DIR__.'/../../laravel-vue-blog/vendor/autoload.php';
+// local
 require __DIR__.'/../vendor/autoload.php';
 
 /*
@@ -34,7 +37,9 @@ require __DIR__.'/../vendor/autoload.php';
 | the responses back to the browser and delight our users.
 |
 */
-
+// hosting
+// $app = require_once __DIR__.'/../../laravel-vue-blog/bootstrap/app.php';
+// local
 $app = require_once __DIR__.'/../bootstrap/app.php';
 
 /*
