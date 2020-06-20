@@ -30,9 +30,9 @@
           >Post</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <router-link class="dropdown-item" :to="{name: 'post.create'}">New Post</router-link>
-            <a class="dropdown-item" href="#">Service 2</a>
+            <a class="dropdown-item" href="#">Post Categories</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Other Service</a>
+            <a class="dropdown-item" href="#">Post Tags</a>
           </div>
         </li>
       </ul>
