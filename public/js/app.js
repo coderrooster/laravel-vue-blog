@@ -2026,6 +2026,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -38717,7 +38724,37 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _vm._v("\n  This is Home page\n")
+    _c(
+      "div",
+      { staticClass: "jumbotron" },
+      [
+        _c("h1", { staticClass: "display-4" }, [_vm._v("Hello, world!")]),
+        _vm._v(" "),
+        _c("p", { staticClass: "lead" }, [
+          _vm._v(
+            "This is home page for simple bog web app build with Laravel v7 and Vue.js v2."
+          )
+        ]),
+        _vm._v(" "),
+        _c("hr", { staticClass: "my-4" }),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "It uses utility classes for typography and spacing to space content out within the larger container."
+          )
+        ]),
+        _vm._v(" "),
+        _c(
+          "router-link",
+          {
+            staticClass: "btn btn-primary btn-lg",
+            attrs: { to: { name: "post.create" } }
+          },
+          [_vm._v("Let's Create New Post")]
+        )
+      ],
+      1
+    )
   ])
 }
 var staticRenderFns = []
