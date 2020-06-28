@@ -2,7 +2,8 @@ import Home from '../views/Home'
 import About from '../views/About'
 import Contact from '../views/Contact'
 
-import PostCreate from '../views/Post/Create.vue'
+import PostCreate from '../views/Posts/Create.vue'
+import PostIndex from '../views/Posts/Index.vue'
 
 export default{
   mode : 'history',
@@ -24,7 +25,12 @@ export default{
        component : Contact
      },
      {
-       path : '/post/create',
+       path : '/posts/',
+       name : 'post.index',
+       component : PostIndex
+     },
+     {
+       path : '/posts/create',
        name : 'post.create',
        component : PostCreate
      },

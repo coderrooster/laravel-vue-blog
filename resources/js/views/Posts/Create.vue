@@ -14,14 +14,14 @@
 
               <div class="form-group">
                 <label for="category" class="font-weight-normal">Category</label>
-                <select id="category" class="form-control" v-model="form.category_id">
+                <select id="category" class="form-control" v-model="form.category">
                   <option value selected disabled>Choose Category</option>
                   <option v-for="c in category" :key="c.id" :value="c.id">{{ c.name }}</option>
                 </select>
                 <div
-                  v-if="form_error.category_id"
+                  v-if="form_error.category"
                   class="mt2 text-danger"
-                >{{ form_error.category_id[0] }}</div>
+                >{{ form_error.category[0] }}</div>
               </div>
 
               <div class="form-group">
@@ -45,7 +45,7 @@ export default {
     return {
       form: {
         title: "",
-        category_id: "",
+        category: "",
         body: ""
       },
       category: [],
@@ -60,7 +60,7 @@ export default {
   methods: {
     resetForm() {
       this.form.title = "";
-      this.form.category_id = "";
+      this.form.category = "";
       this.form.body = "";
       this.form_error = [];
     },
@@ -79,22 +79,26 @@ export default {
       });
     },
     async getCategory() {
-      let ctg = await axios.get("/api/category");
+      let ctg = await axios.get("/api/categories");
       if (ctg.status == 200) {
         this.category = ctg.data;
       }
     },
     async store() {
       try {
-        let save = await axios.post("/api/post/store", this.form);
+        let save = await axios.post("/api/posts/store", this.form);
+        //console.log(save)
         if (save.status == 200) {
           this.resetForm();
           this.responseForm("success",save.data.msg)
         }
       } catch (e) {
-        //console.log(e.response.data.errors)
-        this.form_error = e.response.data.errors;
-        this.responseForm("error","Oops, something went wrong!")
+        if(e.response.status == 422){
+          this.form_error = e.response.data.errors;
+          this.responseForm("error","Oops, something went wrong!")
+        }else{
+          this.responseForm("error","Oops, Internal server error!")
+        }
       }
     }
   }

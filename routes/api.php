@@ -20,9 +20,9 @@ use Illuminate\Support\Facades\Route;
 
 // ### Namespace WebMain\Post
 // Ex. access : [POST] domain.com/api/post/store
-Route::namespace('WebMain\Post')->group(function () {
+Route::namespace('WebMain\Posts')->group(function () {
   //group post
-  Route::prefix('post')->group(function(){
+  Route::prefix('posts')->group(function(){
     Route::get('', 'PostController@index');
     //Route::get('{post}', 'PostController@show')->name('post.show'); //{post} => Object Model Post
     Route::get('{post:slug}', 'PostController@show')->name('post.show'); //{post:slug} => Object post model and spesific / key : slug
@@ -31,7 +31,7 @@ Route::namespace('WebMain\Post')->group(function () {
   });
 
   //group category
-  Route::prefix('category')->group(function(){
+  Route::prefix('categories')->group(function(){
     Route::get('', 'CategoryController@index');
   });
 });

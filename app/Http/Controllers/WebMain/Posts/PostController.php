@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\WebMain\Post;
+namespace App\Http\Controllers\WebMain\Posts;
 
-//use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+//use Illuminate\Http\Request;
 use App\Http\Resources\PostResource;
 use App\Models\{Post, Category};
 use Illuminate\Support\Str;
@@ -13,7 +13,7 @@ class PostController extends Controller
   //view list post
   public function index()
   {
-    $post=Post::with('category')->latest()->get();
+    $post = Post::with('category')->latest()->get();
     return PostResource::collection($post);
   }
 
@@ -29,12 +29,12 @@ class PostController extends Controller
   public function store()
   {
     request()->validate([
-      'category_id' => 'required|numeric',
+      'category' => 'required|numeric',
       'title' => 'required|min:3',
       'body' => 'required',
     ]);
 
-    $category = Category::findOrFail(request('category_id'));
+    $category = Category::findOrFail(request('category'));
     $post = Post::create([
       'category_id' => $category->id,
       'title' => request('title'),
@@ -43,8 +43,7 @@ class PostController extends Controller
     ]);
     return response()->json([
       'msg' => 'Your post was created!',
-      'post' =>$post,
+      'post' => $post,
     ]);
   }
-
 }

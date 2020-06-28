@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
   protected $guarded = [];
-  protected $table='post';
+  protected $table='posts';
   
   //define relation to post table
   public function category()

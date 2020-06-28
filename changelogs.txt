@@ -1,5 +1,9 @@
 ######ARTISAN MAKE######
 @Category
+  #simple 
+  -php artisan make:model Models/Category -m
+  -php artisan make:controller WebMain/Post/PostController
+  #1 by 1
   -php artisan make:controller WebMain/Post/PostController
   -php artisan make:model Models/Category
   -php artisan make:migration create_category_table
